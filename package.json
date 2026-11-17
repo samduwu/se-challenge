@@ -1,0 +1,23 @@
+{
+  "name": "checkly-project",
+  "version": "1.0.0",
+  "description": "Checkly project environment",
+  "homepage": "https://github.com/samduwu/se-challenge#readme",
+  "bugs": {
+    "url": "https://github.com/samduwu/se-challenge/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samduwu/se-challenge.git"
+  },
+  "license": "ISC",
+  "author": "Samuel Wu",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {},
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^26.6.6",
+    "checkly": "latest"
+  }
+}
