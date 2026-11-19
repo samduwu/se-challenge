@@ -1,4 +1,5 @@
 import { defineConfig } from 'checkly'
+import { email } from './alert-channels'
 
 /**
  * See https://www.checklyhq.com/docs/cli/project-structure/
@@ -14,6 +15,8 @@ const config = defineConfig({
   repoUrl: 'https://github.com/samduwu/se-challenge',
   /* Sets default values for Checks */
   checks: {
+     /* Specified alert channels to notify on test failure */
+    alertChannels: [email],
     /* A default for how often your Check should run in minutes */
     frequency: 10,
     /* Checkly data centers to run your Checks as monitors */
