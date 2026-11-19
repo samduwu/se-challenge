@@ -1,4 +1,4 @@
-import { AlertEscalationBuilder, BrowserCheck,  CheckGroupV2, Frequency } from "checkly/constructs"
+import { CheckGroupV2, Frequency } from "checkly/constructs"
 
 // Define a check group for the playwright tests
 const playwrightGroup = new CheckGroupV2("playwright-group", {

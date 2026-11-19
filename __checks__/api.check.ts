@@ -28,7 +28,7 @@ for (const user of users) {
       method: 'GET',
       assertions: [
         AssertionBuilder.statusCode().equals(200),
-        AssertionBuilder.jsonBody('$.id').equals(user.name), // fix
+        AssertionBuilder.jsonBody('$.id').equals(user.id), // fix
         AssertionBuilder.jsonBody('$.name').equals(user.name),
       ],
     },
