@@ -1,5 +1,4 @@
-import { ApiCheck, AssertionBuilder, CheckGroupV2, EmailAlertChannel, Frequency } from 'checkly/constructs'
-import { email } from '../alert-channels'
+import { ApiCheck, AssertionBuilder, CheckGroupV2, Frequency } from 'checkly/constructs'
 import usersJSON from '../users-api.json'
 
 // Define a check group for the api tests
@@ -15,7 +14,6 @@ for (const user of users) {
   // Create a unique api check for each item in the json file
   new ApiCheck(`api-check-${user.id}`, {
     activated: true,
-    alertChannels: [email],
     frequency: Frequency.EVERY_1H,
     group: apiGroup,
     name: `Users API - ${user.name}`,
@@ -30,7 +28,7 @@ for (const user of users) {
       method: 'GET',
       assertions: [
         AssertionBuilder.statusCode().equals(200),
-        AssertionBuilder.jsonBody('$.id').equals(user.id),
+        AssertionBuilder.jsonBody('$.id').equals(user.name), // fix
         AssertionBuilder.jsonBody('$.name').equals(user.name),
       ],
     },

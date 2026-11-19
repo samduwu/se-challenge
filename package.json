@@ -14,10 +14,10 @@
   "author": "Samuel Wu",
   "type": "commonjs",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "devDependencies": {
-    "@playwright/test": "^1.65.1",
-    "@types/node": "^26.6.6",
-    "checkly": "latest"
+    "checkly": "^10.2.0"
   }
 }
