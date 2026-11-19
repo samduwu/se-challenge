@@ -1,22 +1,24 @@
-
-import { ApiCheck, AssertionBuilder, EmailAlertChannel, Frequency } from 'checkly/constructs'
+import { ApiCheck, AssertionBuilder, CheckGroupV2, EmailAlertChannel, Frequency } from 'checkly/constructs'
+import { email } from '../alert-channels'
 import usersJSON from '../users-api.json'
 
-// Define the email(s) to notify for failures
-const email = new EmailAlertChannel("team-email", {
-  address: "samduwu1@gmail.com", // TODO: Change this to user email
-  sendFailure: true,
+// Define a check group for the api tests
+const apiGroup = new CheckGroupV2("api-group", {
+  name: "API Test Group",
+  activated: true,
+  locations: ["us-east-1", "eu-west-1"],
 });
 
 const users = usersJSON["users"];
 
 for (const user of users) {
   // Create a unique api check for each item in the json file
-  new ApiCheck(`api-user-${user.id}`, {
+  new ApiCheck(`api-check-${user.id}`, {
     activated: true,
-    name: 'Users API',
     alertChannels: [email],
     frequency: Frequency.EVERY_1H,
+    group: apiGroup,
+    name: `Users API - ${user.name}`,
     request: {
       url: `${user.profile_url}`,
       headers: [
