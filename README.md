@@ -81,7 +81,7 @@ And to remove this Checkly project from deployment:
 Note: This command will not delete any files on your local machine, it will only remove the checks you deployed from the cloud and stop their ongoing monitoring..
 
 ## Additional Notes and Resources
-* The `__checks__` folder is where Checkly (by default) will look for checks to deploy. Currently, each Check Group that was created is testing each *hour*. The `frequency` key in the following two files can be modified to a [frequency](https://www.checklyhq.com/docs/constructs/check-group-v2/#param-frequency) of your choice.
+* The `__checks__` folder is where Checkly (by default) will look for checks to deploy. Currently, each Check Group that was created is testing each *hour*. The `frequency` key in the following two files can be modified to a [frequency](https://www.checklyhq.com/docs/constructs/check-group-v2/#param-frequency) of your choice. These checks are also currently set to run in both the US and Europe, but the [locations](https://www.checklyhq.com/docs/concepts/locations/) can be adjusted to your needs as well.
   * `api.check.ts` will automatically generate API Checks based on the `users-api.json` file. The JSON file can be extended with more users without changing this check file.
   * `playwright.check.ts` will automatically Browser Checks based on the tests in the `playwright-tests` directory. Similar to before, more tests can be added without changing the check file.
 * `alert-channels.ts` defines the email channel that is being alerted for potential failures.
